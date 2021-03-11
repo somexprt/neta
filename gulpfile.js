@@ -19,8 +19,8 @@ const colorFunction = require('postcss-color-mod-function');
 const cssnano = require('cssnano');
 const easyimport = require('postcss-easy-import');
 
-const REPO = 'TryGhost/Casper';
-const REPO_READONLY = 'TryGhost/Casper';
+const REPO = 'somexprt/neta';
+const REPO_READONLY = 'somexprt/neta';
 const CHANGELOG_PATH = path.join(process.cwd(), '.', 'changelog.md');
 
 function serve(done) {
@@ -135,7 +135,7 @@ exports.release = () => {
         return Promise.resolve();
     })
     .then(() => releaseUtils.releases.get({
-        userAgent: 'Casper',
+        userAgent: 'neta',
         uri: `https://api.github.com/repos/${REPO_READONLY}/releases`
     }))
     .then((response) => {
@@ -169,7 +169,7 @@ exports.release = () => {
         preRelease: false,
         tagName: newVersion,
         releaseName: newVersion,
-        userAgent: 'Casper',
+        userAgent: 'neta',
         uri: `https://api.github.com/repos/${REPO}/releases`,
         github: {
             token: config.github.token
