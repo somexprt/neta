@@ -1,0 +1,16 @@
+{{!< default}}
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+        <section class="pinned-posts">
+        <h2 class="section-title">Веду&nbsp;<a href="{{@site.url}}/blog/">блог</a></h2>
+        {{#get "posts" include="tags" order="published_at desc" limit="10" include="tags" as |latest-posts|}}
+        <ul class="clean-posts-feed">
+            {{#foreach latest-posts}}
+            {{> clean-post-card}}
+            {{/foreach}}
+        </ul>
+        {{/get}}
+        </section>
+    </div>
+</main>

@@ -1,0 +1,27 @@
+{{!< default}}
+
+{{#tag}}
+<header class="outer site-archive-header">
+    <div class="inner site-header-content">
+        <div class="tag-header">
+            <h1 class="site-title">{{name}}</h1>
+            <span class="tag-posts-counter" style="background: {{#if accent_color}}{{accent_color}}{{else}}var(--orange){{/if}};">{{plural ../pagination.total empty='1' singular='%' plural='%'}}</span>
+        </div>
+        {{#if description}}
+        <p class="site-description">{{description}}</p>
+        {{/if}}
+    </div>
+</header>
+{{/tag}}
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+        <div class="post-feed">
+            {{#foreach posts}}
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </div>
+</main>

@@ -1,0 +1,22 @@
+<div class="post-share-section">
+	<div class="post-share-wrap">
+		<a class="share-fb" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+      onclick="window.open(this.href, 'share-facebook','width=580,height=300');return false;" aria-label="share Facebook">
+      {{>icons/social/facebook}}
+		</a>
+    <a class="share-vk" href="https://vk.com/share.php?url={{url absolute="true"}}"
+      onclick="window.open(this.href, 'share-vk','width=580,height=300');return false;" aria-label="share VK">
+      {{>icons/social/vk}}
+    </a>
+    <a class="share-tw" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" data-via="somexprt" onclick="window.open(this.href, 'share-twitter', 'width=580,height=300');return false;" aria-label="share Twitter">
+      {{>icons/social/twitter}}
+    </a>
+    <a class="share-tg" href="tg://msg_url?text={{encode excerpt}}&amp;url={{url absolute="true"}}"
+      onclick="window.open(this.href, 'share-telegram','width=580,height=300');return false;" aria-label="share Telegram">
+      {{>icons/social/telegram}}
+    </a>
+		<a class="post-share-link" id="copy" data-clipboard-target="#copy-link" aria-label="Copy link icon">{{>icons/site/copy}}</a>
+		<small class="share-link-info"></small>
+	</div>
+	<input type="text" value="{{url absolute="true"}}" id="copy-link" aria-label="Copy link input">
+</div>
