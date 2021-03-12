@@ -59,6 +59,8 @@
     --whiteGrey: #eff0f5;
     --navLinkGrey: color-mod(var(--midGrey) l(+40%));
 
+    --bodyColor: #fff;
+
     --darkMode: var(--darkGrey);
     --darkLinkHover: color-mod(var(--red) l(+10%));
     --darkLinkHoverUnderline: color-mod(var(--red) a(40%));
@@ -73,6 +75,12 @@
     --monoFontFamily: "am-mono", monospace;
 
     --linkAnimation: all ease-in-out .2s;
+}
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --bodyColor: var(--darkMode);
+    }
 }
 
 /* Reset
@@ -401,6 +409,10 @@ samp {
     font-size: 95%;
 }
 
+small {
+    font-family: var(--sansSerifFontFamily);
+}
+
 p,
 ul,
 ol,
@@ -566,3 +578,5 @@ h6 {
     font-size: 1.4rem;
     font-weight: 500;
 }
+
+.lightense-backdrop{z-index:99998!important;background-color:var(--bodyColor)!important;-webkit-backdrop-filter:initial!important;backdrop-filter:initial!important}.lightense-wrap ~ br,.lightense-wrap ~ small{display:none}.lightense-wrap img{border-radius:0!important}
