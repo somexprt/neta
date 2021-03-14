@@ -1651,8 +1651,38 @@ a.btn.hover {
 }
 
 /* Aside */
-.post-content .with-aside {
+.with-aside {
     position: relative;
+}
+
+.aside {
+    position: absolute;
+    top: 0;
+    left: 840px;
+    width: 240px;
+    font-size: 1.4rem;
+    line-height: 120%;
+    font-family: var(--sansSerifFontFamily);
+    font-weight: 400;
+}
+
+@media (max-width:1100px) {
+    .aside {
+        position: static;
+        margin: 32px 0;
+    }
+    .post-full-header .aside {
+        width: 100%;
+    }
+    .post-full-header .aside img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width:440px) {
+    .post-full-header .aside img {
+        max-width: 100%;
+    }
 }
 
 /* 8. Author Template
