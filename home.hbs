@@ -7,7 +7,7 @@
         {{#get "posts" include="tags" order="published_at desc" limit="10" include="tags" as |latest-posts|}}
         <ul class="clean-posts-feed">
             {{#foreach latest-posts}}
-            {{> clean-post-card}}
+            {{> "clean-posts/card"}}
             {{/foreach}}
         </ul>
         {{/get}}

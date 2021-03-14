@@ -4,7 +4,7 @@
   {{#get "posts" filter="featured:true" limit="15" include="tags" as |pinned-posts|}}
   <ul class="clean-posts-feed">
     {{#foreach pinned-posts}}
-    {{> clean-post-card}}
+    {{>clean-posts/card}}
     {{/foreach}}
   </ul>
   {{/get}}

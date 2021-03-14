@@ -21,6 +21,11 @@
 						</section>
 					</section>
 				</div>
+				{{#if excerpt}}
+				{{#has tag="#has-excerpt"}}
+				<p class="excerpt">{{excerpt}}</p>
+				{{/has}}
+				{{/if}}
 				{{#has tag="#has-cover"}}
 				{{#if feature_image}}
 				<figure class="post-full-image">
@@ -42,9 +47,6 @@
 
 			<section class="post-full-content">
 				<div class="post-content">
-					{{#if excerpt}}
-					<p>{{excerpt}}</p>
-					{{/if}}
 					{{content}}
 				</div>
 				{{> post-share}}

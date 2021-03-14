@@ -5,7 +5,7 @@
     <div class="inner site-header-content">
         <div class="tag-header">
             <h1 class="site-title">{{name}}</h1>
-            <span class="tag-posts-counter" style="background: {{#if accent_color}}{{accent_color}}{{else}}var(--orange){{/if}};">{{plural ../pagination.total empty='1' singular='%' plural='%'}}</span>
+            <span class="tag-posts-counter" style="{{#if accent_color}}background:{{accent_color}};box-shadow: 0px 1px 6px -1px {{accent_color}}7a, 0px 3px 20px -2px {{accent_color}}7a{{else}}background:var(--accentColor);box-shadow: 0px 1px 6px -1px var(--accentColor50), 0px 3px 20px -2px var(--accentColor50){{/if}};box-sizing: border-box;">{{plural ../pagination.total empty='1' singular='%' plural='%'}}</span>
         </div>
         {{#if description}}
         <p class="site-description">{{description}}</p>
@@ -25,3 +25,4 @@
         </div>
     </div>
 </main>
+

@@ -1,0 +1,16 @@
+<li class="post-card {{post_class}}">
+{{#has tag="#has-mini-cover"}}
+  {{>clean-posts/cover}}
+  <h3 class="post-card-title">
+    <a href="{{url}}">
+{{else}}
+  <h3 class="post-card-title">
+    <a href="{{url}}">
+      {{#has tag="подкасты"}}🎙{{/has}}
+      {{#has tag="читаю"}}📚{{/has}}
+      {{#has tag="смотрю"}}🎬{{/has}}
+{{/has}}
+      {{title}}
+    </a>
+  </h3>
+</li>

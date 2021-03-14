@@ -50,6 +50,9 @@ body {
     text-indent: -9999px;
 }
 
+blockquote, dl, ol, p, ul {
+    margin: 0 0 20px;
+}
 
 /* 2. Layout - Page building blocks
 /* ---------------------------------------------------------- */
@@ -125,7 +128,7 @@ body {
     align-items: center;
 }
 
-.site-header-first-line {
+.header-with-logo {
     margin-left: -60px;
 }
 
@@ -272,10 +275,12 @@ a.site-title.hover {
 }
 
 .site-archive-header .site-title {
+    display: inline-block;
+    position: relative;
     margin-bottom: 16px;
     font-size: 4.8rem;
     font-weight: 800;
-    text-transform: capitalize;
+    box-sizing: content-box;
 }
 
 @media (max-width: 600px) {
@@ -284,23 +289,25 @@ a.site-title.hover {
     }
 }
 
+.site-archive-header .site-title::first-letter {
+    text-transform: uppercase;
+}
+
 .site-archive-header .site-description {
-    max-width: 720px;
+    max-width: var(--mainContentWidth);
     margin-bottom: 0;
 }
 
-.tag-header {
-    display: flex;
-    align-items: flex-start;
-}
-
 .site-archive-header .tag-posts-counter {
+    box-sizing: border-box;
+    display: inline-block;
+    position: absolute;
     color: #fff;
     padding: 4px 8px;
     font-size: 1.4rem;
     border-radius: 20px;
     line-height: 100%;
-    margin-left: 4px;
+    margin-left: 8px;
 }
 
 /* 5. Site Navigation
@@ -500,7 +507,7 @@ a.btn.hover {
 .pinned-posts svg {
     width: 24px;
     height: 24px;
-    fill: var(--orange);
+    fill: var(--accentColor);
     margin-left: 8px;
 }
 
@@ -525,6 +532,20 @@ a.btn.hover {
     font-weight: 400;
     margin: 0;
 }
+
+.clean-posts-feed .post-card-title span {
+    margin: 0 4px 0 -20px;
+}
+
+@media (max-width: 600px) {
+    .clean-posts-feed .post-card-title span {
+        margin-left: 0;
+    }
+}
+
+/* .clean-posts-feed .tag-podcasts .post-card-title a::before {
+    content: "🎙\00A0";
+} */
 
 .pinned-posts .clean-posts-feed {
     width: 100%;
@@ -570,11 +591,21 @@ a.btn.hover {
     transition: var(--linkAnimation);
 }
 
+.clean-posts-feed li > a {
+    border: none;
+}
+
 /* 7. Single Post
 /* ---------------------------------------------------------- */
 
 .post-full {
     margin-top: 60px;
+}
+
+@media (max-width:600px) {
+    .post-full {
+        margin-top: 40px;
+    }
 }
 
 .post-full-title {
@@ -622,13 +653,13 @@ a.btn.hover {
 
 .post-share-wrap a {
     display: flex;
-    width: 44px;
     height: 32px;
     border: none;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
     margin-right: 12px;
+    padding: 0 12px;
     background: var(--whiteGrey);
     transition: var(--linkAnimation);
 }
@@ -660,41 +691,40 @@ a.btn.hover {
     background: color-mod(var(--tgColor) a(20%));
 }
 
-.post-share-wrap a#copy:hover {
-    background: color-mod(var(--orange) a(20%));
+.post-share-wrap a.post-copy-link:hover {
+    background: color-mod(var(--accentColor) a(20%));
 }
 
 /* Copy link
 –––––––––––––––––––––––––––––––––––––––––––––––––––– */
-.post-share-wrap + input {
+.post-share-wrap > input {
     display: block;
     cursor: default;
     opacity: 0;
     color: transparent;
-    height: 1px;
 }
 
-.post-share-link {
+.post-copy-link {
     cursor: pointer;
 }
 
-.post-share-link svg {
+.post-copy-link svg {
     width: 20px;
     height: 20px;
 }
 
-.post-share-link + small {
+.post-copy-link + small {
     opacity: 0;
     content: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.333 12.643l7.66-7.66 1.18 1.178L8.332 15 3.03 9.697l1.178-1.179 4.125 4.125z' /%3E%3C/svg%3E");
     width: 20px;
     margin-left: -8px;
 }
 
-.post-share-link:not(:active) + small {
+.post-copy-link:not(:active) + small {
     transition: opacity 10s step-end;
 }
 
-.post-share-link:active + small {
+.post-copy-link:active + small {
     opacity: 1;
 }
 
@@ -710,7 +740,7 @@ a.btn.hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 16px;
 }
 
 .post-full-content .post-byline-date {
@@ -952,9 +982,10 @@ a.btn.hover {
 .post-full-content ul,
 .post-full-content ol,
 .post-full-content .kg-bookmark-card {
-    max-width: 720px;
+    max-width: var(--mainContentWidth);
 }
 
+.excerpt,
 .post-full-content p,
 .post-full-content ul,
 .post-full-content ol {
@@ -962,6 +993,10 @@ a.btn.hover {
     font-size: 1.9rem;
     line-height: 160%;
     letter-spacing: -0.02em;
+}
+
+.excerpt {
+    font-style: italic;
 }
 
 .post-full-content h1,
@@ -980,23 +1015,25 @@ a.btn.hover {
 }
 
 .post-full-content h2 {
-    font-size: 3.6rem;
-}
-
-.post-full-content h3 {
     font-size: 3.2rem;
 }
 
-.post-full-content h4 {
+.post-full-content h3 {
     font-size: 2.8rem;
 }
 
-.post-full-content h5 {
+.post-full-content h4 {
     font-size: 2.4rem;
+}
+
+.post-full-content h5 {
+    font-size: 2rem;
 }
 
 .post-full-content h6 {
     font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .post-full-content p {
@@ -1033,19 +1070,19 @@ a.btn.hover {
     }
     
     .post-full-content h2 {
-        font-size: 3rem;
-    }
-    
-    .post-full-content h3 {
         font-size: 2.8rem;
     }
     
-    .post-full-content h4 {
+    .post-full-content h3 {
         font-size: 2.4rem;
     }
     
-    .post-full-content h5 {
+    .post-full-content h4 {
         font-size: 2rem;
+    }
+    
+    .post-full-content h5 {
+        font-size: 1.8rem;
     }
     
     .post-full-content h6 {
@@ -1061,7 +1098,7 @@ a.btn.hover {
 .post-full-content blockquote {
     margin: 32px 0;
     padding: 0 24px;
-    border-left: 4px solid var(--orange);
+    border-left: 4px solid var(--accentColor);
     font-style: italic;
 }
 
@@ -1099,7 +1136,7 @@ a.btn.hover {
 }
 
 .post-content li::marker {
-    color: var(--orange);
+    color: var(--accentColor);
 }
 
 .post-content ul ul,
@@ -1107,11 +1144,11 @@ a.btn.hover {
 .post-content ol ol,
 .post-content ol ul {
     font-size: 90%;
-    margin: 15px 0;
+    margin: 12px 0;
 }
 
 .post-content li {
-    margin-bottom: 12px;
+    margin: 8px 0;
 }
 
 .post-content li:last-of-type {
@@ -1120,7 +1157,12 @@ a.btn.hover {
 
 .post-content p + ol,
 .post-content p + ul {
-    margin-top: -12px;
+    margin-top: -20px;
+}
+
+.post-content li > ol,
+.post-content li > ul {
+    margin-top: 0;
 }
 
 .post-content dl dt {
@@ -1148,7 +1190,7 @@ a.btn.hover {
 }
 
 .kg-embed-card > iframe {
-    max-width: 720px;
+    max-width: var(--mainContentWidth);
 }
 
 .telegram-card {
@@ -1156,7 +1198,7 @@ a.btn.hover {
 }
 
 .jouele-card {
-    max-width: 720px;
+    max-width: var(--mainContentWidth);
     margin-bottom: 28px !important;
     margin-top: 12px !important;
 }
@@ -1165,7 +1207,7 @@ a.btn.hover {
     background: color-mod(var(--whiteGrey) l(+1%));
     padding: 2px 8px;
     border-radius: 4px;
-    font-size: 85%;
+    font-size: 92%;
 }
 
 .post-full-content pre {
@@ -1204,6 +1246,16 @@ a.btn.hover {
 .jouele-control code {
     cursor: pointer;
     margin-right: 4px;
+}
+
+.timecodes * {
+    padding: 0;
+}
+
+.timecodes ul {
+    list-style: none;
+    margin: -20px 0 32px;
+    padding: 0;
 }
 
 .kg-embed-card > iframe[title*="Spotify Embed"] {
@@ -1245,7 +1297,7 @@ a.btn.hover {
 }
 
 .fluid-width-video-container {
-    max-width: 720px;
+    max-width: var(--mainContentWidth);
 }
 
 /* Images */
@@ -1257,7 +1309,7 @@ a.btn.hover {
 .post-full-header img,
 .post-full-content .kg-image-card img,
 .post-full-content .highlight img {
-    max-width: 720px;
+    max-width: var(--mainContentWidth);
     width: 100%;
     border-radius: 8px;
 }
@@ -1296,7 +1348,7 @@ a.btn.hover {
 }
 
 .post-full-content p + figure {
-    margin-top: 0;
+    margin-top: 8px;
 }
 
 .post-full-content figure img {
@@ -1304,12 +1356,16 @@ a.btn.hover {
 }
 
 .post-full-content figcaption {
-    margin: 12px auto 0;
+    margin: 12px 0 0;
     color: var(--navLinkGrey);
     font-size: 90%;
     line-height: 150%;
     text-align: left;
     max-width: 100%;
+}
+
+.fluid-width-video-container + figcaption {
+    max-width: var(--mainContentWidth);
 }
 
 @media (max-width: 1040px) {
@@ -1594,6 +1650,11 @@ a.btn.hover {
     }
 }
 
+/* Aside */
+.post-content .with-aside {
+    position: relative;
+}
+
 /* 8. Author Template
 /* ---------------------------------------------------------- */
 
@@ -1658,7 +1719,7 @@ a.btn.hover {
 .site-footer li a:hover::before,
 .site-footer li a.is-active::before,
 .site-footer li a.is-active:hover::before {
-    color: var(--orange);
+    color: var(--accentColor);
 }
 
 .site-footer-content {
@@ -1711,7 +1772,7 @@ a.btn.hover {
 .footer-icons {
     display: flex;
     align-items: center;
-    margin-right: -14px;
+    margin: 0 -14px;
 }
 
 .footer-icons a {
@@ -1936,10 +1997,10 @@ a.btn.hover {
     }
     
     .post-share-wrap a#copy:hover {
-        background: color-mod(var(--orange) a(50%));
+        background: color-mod(var(--accentColor) a(50%));
     }
 
-    .post-share-link + small {
+    .post-copy-link + small {
         content: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.333 12.643l7.66-7.66 1.18 1.178L8.332 15 3.03 9.697l1.178-1.179 4.125 4.125z' fill='%23fff' /%3E%3C/svg%3E");
     }
 

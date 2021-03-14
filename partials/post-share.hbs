@@ -15,8 +15,8 @@
       onclick="window.open(this.href, 'share-telegram','width=580,height=300');return false;" aria-label="share Telegram">
       {{>icons/social/telegram}}
     </a>
-		<a class="post-share-link" id="copy" data-clipboard-target="#copy-link" aria-label="Copy link icon">{{>icons/site/copy}}</a>
+		<a class="post-copy-link" id="btn-clipboard" data-clipboard-target="#copy-url">{{>icons/site/copy}}</a>
 		<small class="share-link-info"></small>
+    <input type="text" id="copy-url" value="{{url absolute="true"}}">
 	</div>
-	<input type="text" value="{{url absolute="true"}}" id="copy-link" aria-label="Copy link input">
 </div>

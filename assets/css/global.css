@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: 'am-serif';
-    src: url('fonts/am-serif/am-serif.woff2') format('woff2');
+    src: url('../fonts/am-serif/am-serif.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'am-serif';
-    src: url('fonts/am-serif/am-serif-italic.woff2') format('woff2');
+    src: url('../fonts/am-serif/am-serif-italic.woff2') format('woff2');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
     font-family: 'am-serif';
-    src: url('fonts/am-serif/am-serif-bold.woff2') format('woff2');
+    src: url('../fonts/am-serif/am-serif-bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -27,7 +27,7 @@
 
 @font-face {
     font-family: 'am-serif';
-    src: url('fonts/am-serif/am-serif-bolditalic.woff2') format('woff2');
+    src: url('../fonts/am-serif/am-serif-bolditalic.woff2') format('woff2');
     font-weight: 700;
     font-style: italic;
     font-display: swap;
@@ -38,7 +38,7 @@
 
 @font-face {
     font-family: 'am-mono';
-    src: url('fonts/am-mono/am-mono.woff2') format('woff2');
+    src: url('../fonts/am-mono/am-mono.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -61,6 +61,9 @@
 
     --bodyColor: #fff;
 
+    --accentColor: var(--orange);
+    --accentColor50: color-mod(var(--orange) a(.5));
+
     --darkMode: var(--darkGrey);
     --darkLinkHover: color-mod(var(--red) l(+10%));
     --darkLinkHoverUnderline: color-mod(var(--red) a(40%));
@@ -69,6 +72,8 @@
     --vkColor: #4680c2;
     --twColor: #1da1f2;
     --tgColor: #2ca5e0;
+
+    --mainContentWidth: 760px;
 
     --sansSerifFontFamily: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", Arial, sans-serif;
     --serifFontFamily: "am-serif", Georgia, serif;
@@ -578,5 +583,3 @@ h6 {
     font-size: 1.4rem;
     font-weight: 500;
 }
-
-.lightense-backdrop{z-index:99998!important;background-color:var(--bodyColor)!important;-webkit-backdrop-filter:initial!important;backdrop-filter:initial!important}.lightense-wrap ~ br,.lightense-wrap ~ small{display:none}.lightense-wrap img{border-radius:0!important}
