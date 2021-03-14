@@ -1,19 +1,10 @@
 <article class="post-card-wrapper">
 	<a class="post-card-content" href="{{url}}">
 		<div class="post-card {{post_class}}">
-			<h2 class="post-card-title"><!--{{#has tag="подкасты"}}🎙 {{/has}}-->{{title}}</h2>
-			{{#has tag="#has-cover"}}
+			<h2 class="post-card-title">{{title}}</h2>
+			{{#has tag="#cover-feed"}}
 			{{#if feature_image}}
-			<img class="post-card-image"
-				srcset="{{img_url feature_image size="s"}} 300w,
-								{{img_url feature_image size="m"}} 600w,
-								{{img_url feature_image size="l"}} 1000w,
-								{{img_url feature_image size="xl"}} 2000w"
-				sizes="(max-width: 1000px) 400px, 700px"
-				loading="lazy"
-				src="{{img_url feature_image size="m"}}"
-				alt="{{title}}"
-			/>
+			<img class="post-card-image" loading="lazy" src="{{img_url feature_image}}" alt="{{title}}" />
 			{{/if}}
 			{{/has}}
 			<section class="post-card-excerpt">

@@ -20,11 +20,11 @@
 						</section>
 					</section>
 				</div>
-				{{#has tag="#has-cover"}}
+				{{#has tag="#cover-post"}}
 					{{#if feature_image}}
-						{{#has tag="#has-excerpt"}}
+						{{#has tag="#excerpt-post"}}
 							{{#if excerpt}}
-								{{#has tag="#aside-cover"}}
+								{{#has tag="#cover-aside"}}
 									<div class="with-aside">
 										<p class="excerpt">{{excerpt}}</p>
 										<figure class="post-full-image aside">
@@ -44,7 +44,7 @@
 						</figure>
 						{{/has}}
 					{{/if}}
-				{{else has tag="#has-excerpt"}}
+				{{else has tag="#excerpt-post"}}
 					{{#if excerpt}}
 						<p class="excerpt">{{excerpt}}</p>
 					{{/if}}
