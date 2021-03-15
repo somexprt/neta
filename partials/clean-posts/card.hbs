@@ -6,9 +6,11 @@
 {{else}}
   <h3 class="post-card-title">
     <a href="{{url}}">
-      {{#has tag="подкасты"}}🎙{{/has}}
-      {{#has tag="читаю"}}📚{{/has}}
-      {{#has tag="смотрю"}}🎬{{/has}}
+      {{^is "post"}}
+        {{#has tag="подкасты"}}🎙{{/has}}
+        {{#has tag="читаю"}}📚{{/has}}
+        {{#has tag="смотрю"}}🎬{{/has}}
+      {{/is}}
 {{/has}}
       {{title}}
     </a>

@@ -88,12 +88,12 @@
 						<div class="read-next-card-content">
 							<ul class="clean-posts-feed">
 								{{#foreach related-posts}}
-									{{> "clean-post-card"}}
+									{{> "clean-posts/card"}}
 								{{/foreach}}
 							</ul>
 						</div>
 						{{!-- <footer class="read-next-card-footer">
-							<a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}}
+							<a class="btn" href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='' singular='Ещё' plural='Ещё'}}
 						→</a>
 						</footer> --}}
 					</article>

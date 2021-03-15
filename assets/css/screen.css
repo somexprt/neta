@@ -1658,8 +1658,8 @@ a.btn.hover {
 .aside {
     position: absolute;
     top: 0;
-    left: 840px;
-    width: 240px;
+    left: 800px;
+    width: 230px;
     font-size: 1.4rem;
     line-height: 120%;
     font-family: var(--sansSerifFontFamily);
@@ -1675,7 +1675,7 @@ a.btn.hover {
         width: 100%;
     }
     .post-full-header .aside img {
-        max-width: 400px;
+        max-width: 320px;
     }
 }
 
