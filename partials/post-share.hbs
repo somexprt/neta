@@ -1,5 +1,5 @@
-<div class="post-share-section">
-	<div class="post-share-wrap">
+<section class="article-share-section gh-canvas">
+	<div class="article-share-wrap">
 		<a class="share-fb" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
       onclick="window.open(this.href, 'share-facebook','width=580,height=300');return false;" aria-label="share Facebook">
       {{>icons/social/facebook}}
@@ -15,8 +15,8 @@
       onclick="window.open(this.href, 'share-telegram','width=580,height=300');return false;" aria-label="share Telegram">
       {{>icons/social/telegram}}
     </a>
-		<a class="post-copy-link" id="btn-clipboard" data-clipboard-target="#copy-url">{{>icons/site/copy}}</a>
+		<a class="article-copy-link" id="btn-clipboard" data-clipboard-target="#copy-url">{{>icons/site/copy}}</a>
 		<small class="share-link-info"></small>
-    <input type="text" id="copy-url" value="{{url absolute="true"}}">
 	</div>
-</div>
+  <input type="text" id="copy-url" value="{{url absolute="true"}}">
+</section>

@@ -1,5 +1,5 @@
 {{#if feature_image}}
 <a href="{{url}}"><img class="post-card-image"{{#has tag="книги,комиксы"}} style="max-width:var(--miniCoverWidth);"{{/has}} loading="lazy" src="{{img_url feature_image size="xs"}}"/></a>
 {{else}}
-<a href="{{url}}"><img class="post-card-image" style="max-width:var(--miniCoverWidth);" loading="lazy" src="{{tags.[1].feature_image}}"/></a>
+<a href="{{url}}"><img class="post-card-image" style="max-width:var(--width-mini-cover);" loading="lazy" src="{{tags.[1].feature_image}}"/></a>
 {{/if}}

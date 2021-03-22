@@ -1,28 +1,36 @@
-{{!--
-This error template is used for all 404 errors, which might occur on your site.
-It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
---}}
-
-{{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-
-<main id="site-main" class="site-main outer error-content">
-    <div class="inner">
-        <section class="error-message">
-            <h1 class="error-code">{{statusCode}}</h1>
-            <p class="error-description">Такой страницы нет</p>
-            <div style="display:flex;flex-direction:row"><a class="error-link btn" href="{{@site.url}}">На главную</a></div>
-        </section>
-
-        {{> pinned-posts}}
-
-        {{!-- {{#get "posts" limit="3" include="authors,tags"}}
-            <div class="post-feed">
-                {{#foreach posts}}
-                {{> "post-card"}}
-                {{/foreach}}
+<html lang="{{@site.locale}}">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Страница не найдена • {{statusCode}} • {{@site.title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+    <style>
+        @media (max-width: 900px) {
+            #gh-head .gh-head-inner {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="{{body_class}}">
+    <div class="site-wrapper">
+        {{> header}}
+        <main id="site-main" class="site-main outer error-content">
+            <div class="inner">
+                <section class="error-message">
+                    <h1 class="error-code">{{statusCode}}</h1>
+                    <p class="error-description">Страница не найдена</p>
+                    <div style="display:flex;flex-direction:row"><a class="error-link btn" href="{{@site.url}}">На главную</a></div>
+                </section>
+                {{> pinned-posts}}
             </div>
-        {{/get}} --}}
+        </main>
+        {{> footer}}
     </div>
-</main>
+    <script src="{{asset "built/global.js"}}"></script>
+    <script>doubleHover('a', 'hover');</script>
+    {{{block "search_js"}}}
+</body>
+</html>

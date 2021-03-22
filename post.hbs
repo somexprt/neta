@@ -1,78 +1,80 @@
 {{!< default}}
 
-{{!-- Everything inside the #post tags pulls data from the post --}}
+{{!-- The tag above means: insert everything in this file
+into the {body} tag of the default.hbs template --}}
+
+
 {{#post}}
+{{!-- Everything inside the #post block pulls data from the post --}}
 
-<main id="site-main" class="site-main outer">
-  <div class="post inner">
-		<article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
-			<header class="post-full-header">
-        <h1 class="post-full-title">{{title}}</h1>
-        <div class="post-full-byline">
-					<section class="post-byline-content">
-						<section class="post-byline-meta">
-							{{#if primary_tag}}
-								{{#primary_tag}}
-								<span class="post-card-primary-tag">{{name}}</span>&nbsp;<span class="bull">&bull;</span>
-								{{/primary_tag}}
-							{{/if}}
-							<span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date timeago="true"}}</time>&nbsp;<span class="bull">&bull;</span> {{reading_time minute="1&nbsp;мин." minutes="%&nbsp;мин."}}</span>
-						</section>
-					</section>
-				</div>
-				{{#has tag="#cover-post"}}
-					{{#if feature_image}}
-						{{#has tag="#excerpt-post"}}
-							{{#if excerpt}}
-								{{#has tag="#cover-aside"}}
-									<div class="with-aside">
-										<p class="excerpt">{{excerpt}}</p>
-										<figure class="post-full-image aside">
-											<img src="{{img_url feature_image}}" alt="{{title}}"/>
-										</figure>
-									</div>
-								{{else}}
-								<p class="excerpt">{{excerpt}}</p>
-								<figure class="post-full-image">
-									<img src="{{img_url feature_image}}" alt="{{title}}"/>
-								</figure>
-								{{/has}}
-							{{/if}}
-						{{else}}
-						<figure class="post-full-image">
-							<img src="{{img_url feature_image}}" alt="{{title}}"/>
-						</figure>
-						{{/has}}
-					{{/if}}
-				{{else has tag="#excerpt-post"}}
-					{{#if excerpt}}
-						<p class="excerpt">{{excerpt}}</p>
-					{{/if}}
-				{{/has}}
-			</header>
-			<section class="post-full-content">
-				<div class="post-content">
-					{{content}}
-				</div>
-				{{> post-share}}
-				<section class="post-byline-meta">
-					<span class="post-byline-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time></span>
-					{{#if tags}}
-					<ul class="post-byline-tags">
-					{{#foreach tags}}
-						<li>
-							<a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
-						</li>
-					{{/foreach}}
-					</ul>
-					{{/if}}
-				</section>
-			</section>
-    </article>
-  </div>
-</main>
+<article class="article {{post_class}}">
 
-{{!-- Links to Previous/Next posts --}}
+    <header class="article-header gh-canvas">
+        <h1 class="article-title">{{title}}</h1>
+        <div class="article-byline">
+            <section class="article-byline-content">
+                {{#if primary_tag}}
+                    {{#primary_tag}}
+                    <span class="article-tag">{{name}}</span>&nbsp;<span class="bull">&bull;</span>
+                    {{/primary_tag}}
+                {{/if}}
+                <span class="article-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date timeago="true"}}</time>&nbsp;<span class="bull">&bull;</span> {{reading_time minute="1&nbsp;мин." minutes="%&nbsp;мин."}}</span>
+            </section>
+        </div>
+        {{#has tag="#cover-post"}}
+            {{#if feature_image}}
+                {{#has tag="#excerpt-post"}}
+                    {{#if excerpt}}
+                        {{#has tag="#cover-aside"}}
+                        <p class="article-excerpt">{{excerpt}}</p>
+                        <aside>
+                            <figure class="article-image">
+                                <img src="{{img_url feature_image}}" alt="{{title}}"/>
+                            </figure>
+                        </aside>
+                        {{else}}
+                        <p class="article-excerpt">{{excerpt}}</p>
+                        <figure class="article-image">
+                            <img src="{{img_url feature_image}}" alt="{{title}}"/>
+                        </figure>
+                        {{/has}}
+                    {{/if}}
+                {{else}}
+                <figure class="article-image">
+                    <img src="{{img_url feature_image}}" alt="{{title}}"/>
+                </figure>
+                {{/has}}
+            {{/if}}
+        {{else has tag="#excerpt-post"}}
+            {{#if excerpt}}
+                <p class="article-excerpt">{{excerpt}}</p>
+            {{/if}}
+        {{/has}}
+    </header>
+
+    <section class="gh-content gh-canvas">
+        {{content}}
+    </section>
+
+    {{> post-share}}
+
+    <section class="article-byline gh-canvas">
+        <div class="article-byline-meta">
+            <span class="article-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time></span>
+            {{#if tags}}
+            <ul class="article-byline-tags">
+            {{#foreach tags}}
+                <li>
+                    <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
+                </li>
+            {{/foreach}}
+            </ul>
+            {{/if}}
+        </div>
+    </section>
+
+</article>
+
 <aside class="read-next outer">
 	<div class="inner">
 		<div class="read-next-feed">
@@ -82,7 +84,7 @@
 					<article class="read-next-card">
 						<header class="read-next-card-header">
 							{{#../primary_tag}}
-							<h2><span>Ещё по тегу</span> <a href="{{url}}">{{name}}</a></h2>
+							<h2 class="section-title"><span>Ещё по тегу</span> <a href="{{url}}">{{name}}</a></h2>
 							{{/../primary_tag}}
 						</header>
 						<div class="read-next-card-content">
@@ -92,10 +94,6 @@
 								{{/foreach}}
 							</ul>
 						</div>
-						{{!-- <footer class="read-next-card-footer">
-							<a class="btn" href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='' singular='Ещё' plural='Ещё'}}
-						→</a>
-						</footer> --}}
 					</article>
 					{{/if}}
 				{{/get}}
@@ -113,15 +111,3 @@
 </aside>
 
 {{/post}}
-
-{{#contentFor "scripts"}}
-<script>
-  $(document).ready(function () {
-		// FitVids - start
-		var $postContent = $(".post-full-content");
-		$postContent.fitVids();
-		// FitVids - end
-		hljs.highlightAll();
-  });
-</script>
-{{/contentFor}}

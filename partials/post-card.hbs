@@ -1,29 +1,36 @@
 <article class="post-card-wrapper">
-	<a class="post-card-content" href="{{url}}">
-		<div class="post-card {{post_class}}">
-			<h2 class="post-card-title">{{title}}</h2>
-			{{#has tag="#cover-feed"}}
+	<a class="post-card {{post_class}}" href="{{url}}">
+		<h2 class="post-card-title">{{title}}</h2>
+		{{#has tag="#cover-feed"}}
 			{{#if feature_image}}
-			<img class="post-card-image" loading="lazy" src="{{img_url feature_image}}" alt="{{title}}" />
+				<img class="post-card-image"
+					srcset="{{img_url feature_image size="s"}} 300w,
+									{{img_url feature_image size="m"}} 600w,
+									{{img_url feature_image size="l"}} 1000w,
+									{{img_url feature_image size="xl"}} 2000w"
+					sizes="(max-width: 1000px) 400px, 800px"
+					src="{{img_url feature_image size="m"}}"
+					alt="{{title}}"
+					loading="lazy"
+				/>
 			{{/if}}
-			{{/has}}
-			<section class="post-card-excerpt">
-				{{#if feature_image}}
-					<p>{{excerpt words="30"}}</p>
-				{{else}}
-					<p>{{excerpt words="44"}}</p>
+		{{/has}}
+		<section class="post-card-excerpt">
+			{{#if feature_image}}
+				<p>{{excerpt words="30"}}</p>
+			{{else}}
+				<p>{{excerpt words="44"}}</p>
+			{{/if}}
+		</section>
+		<footer class="article-byline">
+			<div class="article-byline-content">
+				{{#if primary_tag}}
+					{{#primary_tag}}
+					<span class="article-tag">{{name}}</span>&nbsp;<span class="bull">&bull;</span>
+					{{/primary_tag}}
 				{{/if}}
-			</section>
-			<footer class="post-card-meta">
-				<div class="post-byline-content">
-					{{#if primary_tag}}
-						{{#primary_tag}}
-						<span class="post-card-primary-tag">{{name}}</span>&nbsp;<span class="bull">&bull;</span>
-						{{/primary_tag}}
-					{{/if}}
-					<span class="post-card-byline-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date timeago="true"}}</time>&nbsp;<span class="bull">&bull;</span> {{reading_time minute="1&nbsp;мин." minutes="%&nbsp;мин."}}</span>
-				</div>
-			</footer>
-		</div>
+				<span class="article-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date timeago="true"}}</time>&nbsp;<span class="bull">&bull;</span> {{reading_time minute="1&nbsp;мин." minutes="%&nbsp;мин."}}</span>
+			</div>
+		</footer>
 	</a>
 </article>

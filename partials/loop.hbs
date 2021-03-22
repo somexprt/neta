@@ -1,13 +1,5 @@
-<div class="next-feed-nav{{#is "paged"}} next-page{{/is}}">
-  {{pagination}}
-</div>
-
-<div class="post-feed">
+<div class="post-feed loop-section">
   {{#foreach posts}}
-  {{> post-card}}
+    {{> "post-card"}}
   {{/foreach}}
-</div>
-
-<div class="prev-feed-nav{{#is "paged"}} prev-page{{/is}}">
-  {{pagination}}
 </div>

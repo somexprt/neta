@@ -1,16 +1,67 @@
 {{!< default}}
 
+{{#page}}
+    <section class="page-content gh-canvas">
+        {{content}}
+    </section>
+{{/page}}
+
 <main id="site-main" class="site-main outer">
-    <div class="inner">
-        <section class="pinned-posts">
-        <h2 class="section-title">Веду&nbsp;<a href="{{@site.url}}/blog/">блог</a></h2>
-        {{#get "posts" include="tags" order="published_at desc" limit="10" include="tags" as |latest-posts|}}
-        <ul class="clean-posts-feed">
-            {{#foreach latest-posts}}
-            {{> "clean-posts/card"}}
-            {{/foreach}}
-        </ul>
-        {{/get}}
+    <div class="inner posts">
+        <section class="clean-posts">
+            <h2 class="section-title">Веду <a href="{{@site.url}}/blog/">блог</a></h2>
+            <div class="section-excerpt page-content">
+                <p>Делюсь мыслями и&nbsp;рассказываю истории о&nbsp;массовой культуре, окружающей действительности и&nbsp;жизни в&nbsp;провинции здесь и&nbsp;в&nbsp;<a href="https://t.me/amashkov" target="_blank">телеграм-канале</a>.</p>
+            </div>
+            {{#get "posts" filter="tag:-hash-work" order="published_at desc" limit="10" include="tags" as |latest-posts|}}
+            <ul class="clean-posts-feed">
+                {{#foreach latest-posts}}
+                {{> "clean-posts/card"}}
+                {{/foreach}}
+            </ul>
+            {{/get}}
+        </section>
+        <section class="clean-posts">
+            <h2 class="section-title">Рассказываю про&nbsp;<a href="{{@site.url}}/work/">работу в&nbsp;IT</a></h2>
+            <div class="section-excerpt page-content">
+                <p>Много лет пишу полезные статьи в&nbsp;блоги компаний, в&nbsp;которых работаю. В&nbsp;<a href="{{@site.url}}/tag/leadmachine/" target="_blank">Лидмашине</a> и&nbsp;<a href="{{@site.url}}/tag/emailmatrix/" target="_blank">EMAILMATRIX</a> писал про маркетинг. Сейчас в&nbsp;<a href="{{@site.url}}/tag/weeek/" target="_blank">WEEEK</a> веду блог о&nbsp;продуктивности.</p>
+            </div>
+            {{#get "posts" filter="tag:hash-work" order="published_at desc" limit="10" include="tags" as |latest-posts|}}
+            <ul class="clean-posts-feed">
+                {{#foreach latest-posts}}
+                {{> "clean-posts/card"}}
+                {{/foreach}}
+            </ul>
+            {{/get}}
+        </section>
+        <section class="clean-posts">
+            <h2 class="section-title">Делаю&nbsp;<a href="{{@site.url}}/podcasts/">подкасты</a></h2>
+            <div class="section-excerpt page-content">
+                <p>Неоднократно пробовал записывать аудиорассказы, а&nbsp;сейчас докатился и&nbsp;до&nbsp;подкастов. Действую методом проб и&nbsp;ошибок, всё делаю своими руками, пытаюсь в&nbsp;регулярность.</p>
+            </div>
+            <div class="podcasts-items">
+                <a class="podcast-item" href="{{@site.url}}/tag/perezhivanie/">
+                    <img class="podcast-cover" src="https://storage.yandexcloud.net/sxbucket/img/2021/03/perezhivanie-cover-txt-min.png" alt="">
+                    <div class="podcast-item-content">
+                        <h3 class="podcast-title">Переживание</h3>
+                        <p class="podcast-excerpt">Моя попытка осознать события, которые мы проживаем, и&nbsp;подумать о&nbsp;вещах, которые не&nbsp;дают нам покоя. Говорю обо всём, что заставляет меня испытывать эмоции.</p>
+                    </div>
+                </a>
+                <a class="podcast-item" href="{{@site.url}}/tag/potom-dodelayu/">
+                    <img class="podcast-cover" src="https://storage.yandexcloud.net/sxbucket/img/2021/03/cover-do-it-later-xs.jpg" alt="">
+                    <div class="podcast-item-content">
+                        <h3 class="podcast-title">Потом доделаю</h3>
+                        <p class="podcast-excerpt">Истории и&nbsp;советы для тех, кто управляет проектами, людьми и&nbsp;собой. Рассказываю, как укладываться в&nbsp;дедлайны, работать в&nbsp;команде и&nbsp;быть лучше.</p>
+                    </div>
+                </a>
+                <a class="podcast-item" href="{{@site.url}}/tag/takoi-podcast/">
+                    <img class="podcast-cover" src="https://storage.yandexcloud.net/sxbucket/img/2021/03/tp.jpg" alt="">
+                    <div class="podcast-item-content">
+                        <h3 class="podcast-title">Такой Подкаст (закрыт)</h3>
+                        <p class="podcast-excerpt">Несерьёзный подкаст о&nbsp;серьёзных вещах. С&nbsp;юмором и&nbsp;иронией обсуждаем новости, события, людей, фильмы, книги и&nbsp;многое другое, на&nbsp;что упал наш взгляд.</p>
+                    </div>
+                </a>
+            </div>
         </section>
     </div>
 </main>

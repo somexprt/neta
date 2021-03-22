@@ -1,8 +1,15 @@
 {{!< default}}
 
+{{#page}}
+	<section class="page-content gh-canvas">
+		{{content}}
+	</section>
+{{/page}}
+
 <main id="site-main" class="site-main outer">
-    <div class="inner posts">
-        {{> pinned-posts}}
-        {{> loop}}
-    </div>
+	<div class="inner posts">
+		{{> pinned-posts}}
+		{{> loop}}
+		{{pagination}}
+	</div>
 </main>

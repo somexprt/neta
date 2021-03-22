@@ -1,0 +1,28 @@
+<header id="gh-head" class="gh-head {{#if @site.cover_image}}has-cover{{/if}}">
+	<nav class="gh-head-inner inner gh-container">
+		<div class="gh-head-brand">
+      {{#is "home"}}
+      <div class="gh-head-logo">
+        <span class="site-logo">{{>icons/site/logo-clip}}</span>
+        <h1 class="site-title">{{@site.title}}</h1>
+      </div>
+      {{else}}
+      <a class="gh-head-logo" href="{{@site.url}}">
+        <span class="site-logo">{{>icons/site/logo-clip}}</span>
+        <span class="site-title">{{@site.title}}</span>
+      </a>
+      {{/is}}
+			<a class="gh-burger" role="button">
+				<div class="gh-burger-box">
+					<div class="gh-burger-inner"></div>
+				</div>
+			</a>
+    </div>
+		<div class="gh-head-menu">
+			{{navigation}}
+		</div>
+		<div class="gh-head-actions">
+			<div id="search-open" class="gh-search site-search"><span>Поиск</span>{{>icons/site/search}}</div>
+		</div>
+	</nav>
+</header>

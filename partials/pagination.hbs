@@ -1,8 +1,8 @@
-<nav class="pagination" role="navigation">
-    {{#if prev}}
-        <a class="newer-posts btn" href="{{page_url prev}}">Позже</a>
-    {{/if}}
-    {{#if next}}
-        <a class="older-posts btn" href="{{page_url next}}">Раньше</a>
-    {{/if}}
-</nav>
+<div class="pagination-section">
+	{{#if next}}
+	<div class="pagination-wrap">
+		<a href="{{page_url next}}" id="next-page"></a>
+		<button class="load-more btn" aria-label="Ещё">Ещё</button>
+	</div>
+	{{/if}}
+</div>

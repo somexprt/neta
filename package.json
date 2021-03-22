@@ -1,11 +1,11 @@
 {
     "name": "neta",
-    "description": "A simple and neat theme for the Ghost inspired by the Aegea blog engine and Teletype.in",
+    "description": "A simple and neat theme for the Ghost inspired by the Aegea blog engine, Teletype.in and Casper Theme",
     "demo": "https://amashkov.ru/neta",
-    "version": "0.3.0",
+    "version": "0.5.1",
     "engines": {
-        "ghost": ">=3.0.0",
-        "ghost-api": "v3"
+        "ghost": ">=4.0.0",
+        "ghost-api": "v4"
     },
     "license": "MIT",
     "scripts": {
@@ -58,7 +58,7 @@
         "defaults"
     ],
     "config": {
-        "posts_per_page": 10,
+        "posts_per_page": 5,
         "image_sizes": {
             "xxs": {
                 "width": 30

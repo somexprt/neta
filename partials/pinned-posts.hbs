@@ -1,10 +1,10 @@
 {{^is "paged"}}
-<section class="pinned-posts">
+<section class="clean-posts">
   <h2 class="section-title">Не пропусти{{> "icons/site/star"}}</h2>
   {{#get "posts" filter="featured:true" limit="15" include="tags" as |pinned-posts|}}
   <ul class="clean-posts-feed">
     {{#foreach pinned-posts}}
-    {{>clean-posts/card}}
+      {{> clean-posts/card}}
     {{/foreach}}
   </ul>
   {{/get}}
