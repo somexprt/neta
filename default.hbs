@@ -15,10 +15,12 @@
 <body class="{{body_class}}">
 <div class="viewport">
 
-{{^is "author,tag"}}
+{{#is "home"}}
 {{#if @site.cover_image}}
 <div class="gh-head-cover gh-head-bg-image" style="background-image: url({{@site.cover_image}})"></div>
 {{/if}}
+{{else is "page, tag, author"}}
+{{{block "header-cover"}}}
 {{/is}}
 
 {{> header}}

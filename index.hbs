@@ -1,9 +1,15 @@
 {{!< default}}
 
 {{#page}}
+
 	<section class="page-content gh-canvas">
 		{{content}}
 	</section>
+
+	{{#contentFor "header-cover"}}
+	<div class="gh-head-cover gh-head-bg-image" style="background-image: url({{img_url feature_image}})"></div>
+	{{/contentFor}}
+
 {{/page}}
 
 <main id="site-main" class="site-main outer">

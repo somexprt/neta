@@ -1,8 +1,14 @@
 {{!< default}}
 
 {{#post}}
+
 <article class="gh-content page-content gh-canvas">
     <h1 style="margin-bottom: 0;">{{title}}</h1>
     {{content}}
 </article>
+
+{{#contentFor "header-cover"}}
+<div class="gh-head-cover gh-head-bg-image" style="background-image: url({{img_url feature_image}})"></div>
+{{/contentFor}}
+
 {{/post}}

@@ -115,7 +115,6 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
     /* Header Cover */
     --opacity-bg-site-image: 0.12;
-    --opacity-bg-archive-image: 0.12;
     --overlay-bg-image: 255, 255, 255;
 
     /* Others */
@@ -153,6 +152,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
         --color-btn-background: var(--color-wash);
 
         --share-btn-blend: a(.5);
+
+        /* Header Cover */
+        --opacity-bg-site-image: 0.1;
+        --overlay-bg-image: 21, 23, 24;
 
     }
 
@@ -205,6 +208,59 @@ html{font-size:62.5%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{color:var(--
 
 .site-logo {
     margin-right: 0.7em;
+}
+
+/* Image
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.global-image img {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.gh-head-bg-image {
+    background: no-repeat center center/cover;
+}
+
+/* Cover
+–––––––––––––––––––––––––––––––––––––––––––––––––––– */
+.gh-head-cover {
+    z-index: -3;
+    width: 100%;
+    height: 320px;
+    opacity: var(--opacity-bg-site-image);
+}
+
+.gh-head-cover,
+.gh-head-cover::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.gh-head-cover::before {
+    z-index: 1;
+    content: '';
+    background-image: linear-gradient(to top, rgb(var(--overlay-bg-image)), rgba(var(--overlay-bg-image), .94505) 7.9%, rgba(var(--overlay-bg-image), .88294) 15.3%, rgba(var(--overlay-bg-image), .81522) 22.2%, rgba(var(--overlay-bg-image), .7426) 28.7%, rgba(var(--overlay-bg-image), .66692) 34.8%, rgba(var(--overlay-bg-image), .58891) 40.6%, rgba(var(--overlay-bg-image), .50925) 46.2%, rgba(var(--overlay-bg-image), .42866) 51.7%, rgba(var(--overlay-bg-image), .34817) 57.2%, rgba(var(--overlay-bg-image), .2693) 62.8%, rgba(var(--overlay-bg-image), .19309) 68.7%, rgba(var(--overlay-bg-image), .12126) 75.2%, rgba(var(--overlay-bg-image), .05882) 82.6%, rgba(var(--overlay-bg-image), .01457) 91.2%, rgba(var(--overlay-bg-image), 0));
+}
+
+@media (max-width:480px) {
+    .gh-head-cover {
+       height: 300px;
+    }
+}
+ 
+@media (min-width:481px) and (max-width:767px) {
+    .gh-head-cover {
+       height: 450px;
+    }
 }
 
 
