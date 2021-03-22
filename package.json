@@ -2,7 +2,7 @@
     "name": "neta",
     "description": "A simple and neat theme for the Ghost inspired by the Aegea blog engine, Teletype.in and Casper Theme",
     "demo": "https://amashkov.ru/neta",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "engines": {
         "ghost": ">=4.0.0",
         "ghost-api": "v4"
